@@ -28,10 +28,11 @@ public class bee1002 {
 		double raio = sc.nextDouble();
 		double n = 3.14159;
 		double area = n * Math.pow(raio, 2);
-		var = 'teste';
+		
 
-		// System.out.println(String.format("A=%.4f", area));
-		System.out.println(teste);
+		System.out.println(String.format("A=%.4f", area));
+		
+		sc.close();
 	}
 
 }

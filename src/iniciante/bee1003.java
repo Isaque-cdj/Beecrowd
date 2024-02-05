@@ -1,3 +1,5 @@
+package iniciante;
+
 import java.io.IOException;
 import java.util.Scanner;
 
@@ -17,6 +19,7 @@ public class bee1003 {
 
 		System.out.println("SOMA = " + SOMA);
 
+		sc.close();
 	}
 
 }
