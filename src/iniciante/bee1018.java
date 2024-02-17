@@ -2,36 +2,46 @@ package iniciante;
 
 import java.io.IOException;
 import java.util.Scanner;
-
-/*Joaozinho quer calcular e mostrar a quantidade de litros de 
- * combustível gastos em uma viagem, ao utilizar um automóvel 
- * que faz 12 KM/L. Para isso, ele gostaria que você o auxiliasse 
- * através de um simples programa. Para efetuar o cálculo, deve-se 
- * fornecer o tempo gasto na viagem (em horas) e a velocidade média 
- * durante a mesma (em km/h). Assim, pode-se obter distância percorrida e, 
- * em seguida, calcular quantos litros seriam necessários. 
- * Mostre o valor com 3 casas decimais após o ponto.
- * 
+/*
+ * Leia um valor inteiro. A seguir, calcule o menor número de notas possíveis (cédulas) no qual o valor pode ser decomposto.
+ * As notas consideradas são de 100, 50, 20, 10, 5, 2 e 1. A seguir mostre o valor lido e a relação de notas necessárias.
+ *
  * Entrada
- * 
- * O arquivo de entrada contém dois inteiros. O primeiro é o tempo 
- * gasto na viagem (em horas) e o segundo é a velocidade média durante 
- * a mesma (em km/h).
- * 
+ * O arquivo de entrada contém um valor inteiro N (0 < N < 1000000).
+ *
  * Saída
- * 
- * Imprima a quantidade de litros necessária para realizar a viagem, 
- * com três dígitos após o ponto decimal*/
+ * Imprima o valor lido e, em seguida, a quantidade mínima de notas de cada tipo necessárias, conforme o exemplo fornecido.
+ * Não esqueça de imprimir o fim de linha após cada linha, caso contrário seu programa apresentará a mensagem: “Presentation Error”.
+ */
+
 public class bee1018 {
 	public static void main(String[] args) throws IOException {
-		 
-        Scanner sc = new Scanner(System.in);
-        
-        int tempoGasto = sc.nextInt(), velocidadeMedia = sc.nextInt(); 
-        double litrosGastos = (1.0/12) * (tempoGasto * velocidadeMedia) ;
-        
-        System.out.printf("%.3f%n", litrosGastos);
-        
-        sc.close();	
-    }
+
+		Scanner sc = new Scanner(System.in);
+
+		int valor = sc.nextInt();
+
+		int notas100 = valor / 100;
+		valor %= 100;
+		int notas50 = valor / 50;
+		valor %= 50;
+		int notas20 = valor / 20;
+		valor %= 20;
+		int notas10 = valor / 10;
+		valor %= 10;
+		int notas5 = valor / 5;
+		valor %= 5;
+		int notas2 = valor / 2;
+		valor %= 2;
+		int notas1 = valor;
+
+		System.out.println(notas100 + " nota(s) de R$ 100,00");
+		System.out.println(notas50 + " nota(s) de R$ 50,00");
+		System.out.println(notas20 + " nota(s) de R$ 20,00");
+		System.out.println(notas10 + " nota(s) de R$ 10,00");
+		System.out.println(notas5 + " nota(s) de R$ 5,00");
+		System.out.println(notas2 + " nota(s) de R$ 2,00");
+		System.out.println(notas1 + " nota(s) de R$ 1,00");
+		sc.close();
+	}
 }
