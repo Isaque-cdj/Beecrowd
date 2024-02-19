@@ -19,7 +19,8 @@ public class bee1018 {
 
 		Scanner sc = new Scanner(System.in);
 
-		int valor = sc.nextInt();
+		int valorInserido = sc.nextInt();
+		int valor = valorInserido;
 
 		int notas100 = valor / 100;
 		valor %= 100;
@@ -34,7 +35,10 @@ public class bee1018 {
 		int notas2 = valor / 2;
 		valor %= 2;
 		int notas1 = valor;
-
+		
+		
+		System.out.println(valorInserido);
+		
 		System.out.println(notas100 + " nota(s) de R$ 100,00");
 		System.out.println(notas50 + " nota(s) de R$ 50,00");
 		System.out.println(notas20 + " nota(s) de R$ 20,00");
