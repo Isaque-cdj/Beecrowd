@@ -1,72 +1,74 @@
-package iniciante;
+/*
+ * package iniciante;
+ * 
+ * import java.io.IOException; import java.util.Locale; import
+ * java.util.Scanner;
+ * 
+ * Leia um valor de ponto flutuante com duas casas decimais. Este valor
+ * representa um valor monetário. A seguir, calcule o menor número de notas e
+ * moedas possíveis no qual o valor pode ser decomposto. As notas consideradas
+ * são de 100, 50, 20, 10, 5, 2. As moedas possíveis são de 1, 0.50, 0.25, 0.10,
+ * 0.05 e 0.01. A seguir mostre a relação de notas necessárias.
+ * 
+ * Entrada O arquivo de entrada contém um valor de ponto flutuante N (0 ≤ N ≤
+ * 1000000.00).
+ * 
+ * Saída Imprima a quantidade mínima de notas e moedas necessárias para trocar o
+ * valor inicial, conforme exemplo fornecido.
+ * 
+ * Obs: Utilize ponto (.) para separar a parte decimal.
+ * 
+ * public class bee1021 { public static void main(String[] args) throws
+ * IOException {
+ * 
+ * Locale.setDefault(new Locale("en", "US")); Scanner sc = new
+ * Scanner(System.in);
+ * 
+ * double n = sc.nextDouble(); int[] notas = {100, 50, 20, 10, 5, 2}; double[]
+ * moedas = {1.0, 0.5, 0.25, 0.10, 0.05, 0.01};
+ * 
+ * System.out.println("NOTAS:"); for (int i = 0; i < notas.length; i++) { int
+ * quantidadeNotas = (int) (n / notas[i]); System.out.println(quantidadeNotas+
+ * " nota(s) de R$ " + notas[i] + ".00"); n -= quantidadeNotas * notas[i]; }
+ * 
+ * System.out.println("MOEDAS:"); for (int i = 0; i < moedas.length; i++) { int
+ * quantidadeMoedas = (int) (n / moedas[i]); System.out.println(quantidadeMoedas
+ * + " moeda(s) de R$ " + String.format("%.2f", moedas[i])); n -=
+ * quantidadeMoedas * moedas[i]; }
+ * 
+ * sc.close(); }
+ * 
+ * }
+ */
 
 import java.io.IOException;
-import java.util.Locale;
 import java.util.Scanner;
 
 public class bee1021 {
-	public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException {
 
-		Locale.setDefault(new Locale("en", "US"));
-		Scanner sc = new Scanner(System.in);
+        Scanner sc = new Scanner(System.in);
 
-		double n = sc.nextDouble();
+        double valor = sc.nextDouble();
+        int valorEmCentavos = (int) (valor * 100);
 
-		double nota100 = n / 100;
-		n %= 100;
-		double n100 = Math.floor(nota100);
+        int[] notas = {10000, 5000, 2000, 1000, 500, 200};
+        int[] moedas = {100, 50, 25, 10, 5, 1};
 
-		double nota50 = n / 50;
-		n %= 50;
-		double n50 = Math.floor(nota50);
+        System.out.println("NOTAS:");
+        for (int i = 0; i < notas.length; i++) {
+            int quantidadeNotas = valorEmCentavos / notas[i];
+            System.out.printf("%d nota(s) de R$ %.2f\n", quantidadeNotas, notas[i] / 100.0);
+            valorEmCentavos %= notas[i];
+        }
 
-		double nota20 = n / 20;
-		n %= 20;
-		double n20 = Math.floor(nota20);
+        System.out.println("MOEDAS:");
+        for (int i = 0; i < moedas.length; i++) {
+            int quantidadeMoedas = valorEmCentavos / moedas[i];
+            System.out.printf("%d moeda(s) de R$ %.2f\n", quantidadeMoedas, moedas[i] / 100.0);
+            valorEmCentavos %= moedas[i];
+        }
 
-		double nota10 = n / 10;
-		n %= 10;
-		double n10 = Math.floor(nota10);
-
-		double nota5 = n / 5;
-		n %= 5;
-		double n5 = Math.floor(nota5);
-
-		double nota2 = n / 2;
-		double n2 = Math.floor(nota2);
-
-// Moedas 
-		double moed1 = n / 1;
-		n %= 1;
-		double m1 = Math.floor(moed1);
-
-		double moed50 = n / 0.50;
-		n %= 0.50;
-		double m50 = Math.floor(moed50);
-
-		double moed25 = n / 0.25;
-		n %= 0.25;
-		double m25 = Math.floor(moed25);
-
-		double moed10 = n / 0.10;
-		n %= 0.10;
-		double m10 = Math.floor(moed10);
-
-		double moed5 = n / 0.05;
-		n %= 0.05;
-		double m5 = Math.floor(moed5);
-
-		double moed1c = n / 0.01;
-		double m1c = Math.floor(moed1c);
-
-		System.out.printf("NOTAS:%n" + "%.0f nota(s) de R$ 100.00%n" + "%.0f nota(s) de R$ 50.00%n"
-				+ "%.0f nota(s) de R$ 20.00%n" + "%.0f nota(s) de R$ 10.00%n" + "%.0f nota(s) de R$ 5.00%n"
-				+ "%.0f nota(s) de R$ 2.00%n" + "MOEDAS:%n" + "%.0f moeda(s) de R$ 1.00%n"
-				+ "%.0f moeda(s) de R$ 0.50%n" + "%.0f moeda(s) de R$ 0.25%n" + "%.0f moeda(s) de R$ 0.10%n"
-				+ "%.0f moeda(s) de R$ 0.05%n" + "%.0f moeda(s) de R$ 0.01%n", n100, n50, n20, n10, n5, n2, m1, m50,
-				m25, m10, m5, m1c);
-
-		sc.close();
-	}
-
+        sc.close();
+    }
 }
