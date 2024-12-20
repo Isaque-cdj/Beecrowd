@@ -21,15 +21,7 @@ float media;
 
 int main()
 {
-
-    printf("Digite as notas\n");
-    scanf("%f", &n1);
-    printf("Digite 2° a nota\n");
-    scanf("%f", &n2);
-    printf("Digite 3° a nota\n");
-    scanf("%f", &n3);
-    printf("Digite 4° a nota\n");
-    scanf("%f", &n4);
+    scanf("%f %f %f %f", &n1, &n2, &n3, &n4);
 
     media = ((p1 * n1) + (p2 * n2) + (p3 * n3) + (p4 * n4)) / (p1 + p2 + p3 + p4);
     printf("Media: %.1f\n", media);
@@ -47,16 +39,18 @@ int main()
         printf("Aluno em exame.\n");
         float notaExam;
         scanf("%f", &notaExam);
-        float mediaFinal = (media + notaExam) / 2;
-        if (mediaFinal >= 5)
+        printf("Nota do exame: %.1f\n", notaExam);
+        media = (media + notaExam) / 2;
+
+        if (media >= 5)
         {
             printf("Aluno aprovado.\n");
-            printf("Media final: ", mediaFinal);
+            printf("Media final: %.1f", media);
         }
         else
         {
-            printf("Aluno reprovado.\n", mediaFinal);
-            printf("Media final: ", mediaFinal);
+            printf("Aluno reprovado.\n");
+            printf("Media final: %.1f", media);
         }
     }
 
