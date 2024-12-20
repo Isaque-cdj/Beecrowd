@@ -12,46 +12,39 @@ final para esse aluno.
 */
 
 #include <stdio.h>
-// notas
-float n1, n2, n3, n4;
-// pesos
-int p1 = 2, p2 = 3, p3 = 4, p4 = 1;
-
-float media;
+// notas n*
+float n1, n2, n3, n4, media, notaExam;
 
 int main()
 {
     scanf("%f %f %f %f", &n1, &n2, &n3, &n4);
 
-    media = ((p1 * n1) + (p2 * n2) + (p3 * n3) + (p4 * n4)) / (p1 + p2 + p3 + p4);
+    media = ((n1 * 2) + (n2 * 3) + (n3 * 4) + (n4 * 1)) / 10;
     printf("Media: %.1f\n", media);
 
     if (media >= 7)
     {
-        printf("Aluno aprovado.");
+        printf("Aluno aprovado.\n");
     }
     else if (media < 5)
     {
         printf("Aluno reprovado.");
     }
-    else if (media >= 5 && media < 7)
+    else if (media >= 5)
     {
         printf("Aluno em exame.\n");
-        float notaExam;
         scanf("%f", &notaExam);
         printf("Nota do exame: %.1f\n", notaExam);
-        media = (media + notaExam) / 2;
-
-        if (media >= 5)
+        
+        if ((media + notaExam) / 2 > 5)
         {
             printf("Aluno aprovado.\n");
-            printf("Media final: %.1f", media);
         }
         else
         {
             printf("Aluno reprovado.\n");
-            printf("Media final: %.1f", media);
         }
+        printf("Media final: %.1f", (media + notaExam) / 2.0);
     }
 
     return 0;
