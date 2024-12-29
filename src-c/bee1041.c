@@ -29,7 +29,7 @@
  * Entrada:  0.1  0.1        Saída: Q1
  * Entrada:  0.0  0.0        Saída: Origem
  */
-
+//# Precisa ser corrijido 
 int main()
 {
     double x, y;
